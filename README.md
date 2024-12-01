@@ -48,3 +48,6 @@ pip install -r requirements.txt
 ```
 echo.> .gitignore
 ```
+13. đổi khoảng cách indent (khoảng thụt dòng)
+ctrl + shift + p => Change tab display size => chọn 4 (mặc định)
+15. 
