@@ -50,7 +50,8 @@ echo.> .gitignore
 ```
 13. đổi khoảng cách indent (khoảng thụt dòng)
 ctrl + shift + p => Change tab display size => chọn 4 (mặc định)
-15. cách tạo venv
+
+14. cách tạo venv
 tạo venv ngang cấp với folder chạy chương trình
 vd:
 - khachsan
@@ -69,7 +70,8 @@ python -m app.index
 ```
 python -m app.models
 ```
-17. nếu tạo venv ở ngoài:
+
+15. nếu tạo venv ở ngoài:
 phải set PYTHONPATH
 ```
 $env: PYTHONPATH = "D:\QLkhachSan\khachsan"
@@ -84,5 +86,4 @@ set PYTHONPATH = D:\QLkhachSan\khachsan
 ```
 .venv\Scripts\python.exe khachsan\app\index.py
 ```
-21. 
     
