@@ -86,4 +86,15 @@ set PYTHONPATH = D:\QLkhachSan\khachsan
 ```
 .venv\Scripts\python.exe khachsan\app\index.py
 ```
-    
+16. kiểm tra phiên bản python
+```
+py -0
+```
+chọn phiên bản cần dùng
+```
+py -3.12 
+```
+```
+py -3.10 
+```
+17. 
