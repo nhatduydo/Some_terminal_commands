@@ -90,11 +90,10 @@ set PYTHONPATH = D:\QLkhachSan\khachsan
 ```
 py -0
 ```
-chọn phiên bản cần dùng
-```
-py -3.12 
-```
-```
-py -3.10 
-```
-17. 
+17. thu gọn code trong vscode (blue)
+ctrl + shift + [
+18. mở rộng code trong vscode (blue)
+ctrl + shift + ]
+19. format code html
+ctrl + shift + f
+
