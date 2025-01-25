@@ -101,3 +101,4 @@ thường xảy ra khi VS Code không thể tìm thấy thư viện streamlit tr
 Chọn đúng Interpreter:
 Nhấn Ctrl+Shift+P để mở Command Palette.
 Gõ Python: Select Interpreter và chọn đúng phiên bản Python mà bạn đã cài đặt streamlit.
+streamlit run chatbot.py
