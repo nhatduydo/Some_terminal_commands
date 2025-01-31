@@ -1,4 +1,4 @@
-một số lệnh comment terminal  
+## một số lệnh comment terminal  
 # MỤC LỤC
 1. [xem các danh sách các extension đã cài trong máy](#xem-các-danh-sách-các-extension-đã-cài-trong-máy)
 2. [xuất danh sách các extension đã cài trong máy](#xuất-danh-sách-các-extension-đã-cài-trong-máy)
