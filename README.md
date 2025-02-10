@@ -20,7 +20,7 @@
 18. [mở rộng code trong vscode](#mở-rộng-code-trong-vscode)
 19. [Lỗi "Import 'streamlit' could not be resolved"](#lỗi-import-streamlit-could-not-be-resolved)
 20. [Chọn đúng Interpreter](#chọn-đúng-interpreter)  
-
+21. [các extensions hỗ trợ format code python](#các-extensions-hỗ-trợ-format-code-python)
 
 
 
@@ -130,3 +130,7 @@ thường xảy ra khi VS Code không thể tìm thấy thư viện streamlit tr
 Nhấn Ctrl+Shift+P để mở Command Palette.
 Gõ Python: Select Interpreter và chọn đúng phiên bản Python mà bạn đã cài đặt streamlit.
 streamlit run chatbot.py
+## các extensions hỗ trợ format code python
+- black formatter
+- pep8
+- yapf
