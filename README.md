@@ -26,7 +26,18 @@
     - [tạo cặp khóa public và private](#tạo-cặp-khóa-public-và-private)
     - [chứng thực ssh](#chứng-thực-ssh)
     - [xóa tài khoản đang chạy](#xóa-tài-khoản-đang-chạy)
-    - [git stash - lưu những thay đổi tạm thời vào thùng chứa tạm](#git-stash---lưu-những-thay-đổi-tạm-thời-vào-thùng-chứa-tạm)
+23. [git stash - lưu những thay đổi tạm thời vào thùng chứa tạm](#git-stash---lưu-những-thay-đổi-tạm-thời-vào-thùng-chứa-tạm)
+24. [đưa file về trạng thái cũ như ban đầu](#đưa-file-về-trạng-thái-cũ-như-ban-đầu)
+25. [chuyển file từ vùng xanh staging area quay lại đỏ working copy](#chuyển-file-từ-vùng-xanh-staging-area-quay-lại-đỏ-working-copy)
+26. [bỏ file khi đã lỡ push lên server](#bỏ-file-khi-đã-lỡ-push-lên-server)
+
+
+
+
+
+
+
+
 
 
 
@@ -186,3 +197,27 @@ tìm kiếm: Credential Manager => Windows Credentials: chọn tài khoản gith
     git stash apply {name}
     ```
     
+## đưa file về trạng thái cũ như ban đầu
+```
+git checkout namefile
+```
+ví dụ: git checkout text.txt
+chỉ có tác dụng ở vùng đỏ (trước git add) khi chuyển qua xanh (sau khi git add) thì không còn tác dụng
+## chuyển file từ vùng xanh stagging area quay lại đỏ working copy
+nếu file đã thực hiện git add mà muốn quay lại thì thực hiện 
+```
+git reset filename
+```
+còn nếu đã lỡ nằm trên thùng chứa cục bộ luôn thì chỉ có thể reset thùng chứa lại 
+## bỏ file khi đã lỡ push lên server
+khi đã lỡ thực hiện tất cả bước: 
+git add => git commit => git push mà muốn gỡ file đã push trên server thực hiện
+```
+git rm filename
+```
+```
+git commit -m ""
+```
+```
+git push origin main
+```
