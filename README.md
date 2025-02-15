@@ -21,6 +21,12 @@
 19. [Lỗi "Import 'streamlit' could not be resolved"](#lỗi-import-streamlit-could-not-be-resolved)
 20. [Chọn đúng Interpreter](#chọn-đúng-interpreter)  
 21. [các extensions hỗ trợ format code python](#các-extensions-hỗ-trợ-format-code-python)
+22. [SSH](#ssh)
+    - [kiểm tra phiên bản](#kiểm-tra-phiên-bản)
+    - [tạo cặp khóa public và private](#tạo-cặp-khóa-public-và-private)
+    - [chứng thực ssh](#chứng-thực-ssh)
+    - [xóa tài khoản đang chạy](#xóa-tài-khoản-đang-chạy)
+    - [git stash - lưu những thay đổi tạm thời vào thùng chứa tạm](#git-stash---lưu-những-thay-đổi-tạm-thời-vào-thùng-chứa-tạm)
 
 
 
@@ -134,3 +140,49 @@ streamlit run chatbot.py
 - black formatter
 - pep8
 - yapf
+## SSH
+## kiểm tra phiên bản
+```
+ssh -V
+```
+## tạo cặp khóa public và private
+```
+ssh-keygen
+```
+enter lấy mặc định
+vào thường dẫn sẽ thấy 2 cặp khóa được tạo ra 
+```
+C:\Users\nhatduy\.ssh
+```
+gồm 2 loại: id_ed123 và id_ed123.pub
++ id_ed123 => khóa private key
++ id_ed123.pub => đây là khóa public key, khi vô công ty, nếu sếp yêu cầu đưa khóa cho ổng => đưa khóa public
+
+## chứng thực ssh
+- vào setting => SSH and GPG keys => new SSH => ghi title và paste ssh vô => oke
+- kể từ thòi điểm chứng thực ssh => khi push lên là không cần chứng thực nữa
+## xóa tài khoản đang chạy 
+tìm kiếm: Credential Manager => Windows Credentials: chọn tài khoản github => remove
+
+## git stash - lưu những thay đổi tạm thời vào thùng chứa tạm
+- lưu những thay đổi tạm thời vào thùng chứ tạm
+  ```
+  git stash
+  ```
+- xem danh dánh đã lưu
+  ```
+  git stash list
+  ```
+- áp dụng lại stash
+- + apply hết
+    ```
+    git stash apply
+    ```
+  + apply 1 cái nào đó
+    ```
+    git stash list
+    ```
+    ```
+    git stash apply {name}
+    ```
+    
