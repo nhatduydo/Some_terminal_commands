@@ -26,10 +26,19 @@
     - [tạo cặp khóa public và private](#tạo-cặp-khóa-public-và-private)
     - [chứng thực ssh](#chứng-thực-ssh)
     - [xóa tài khoản đang chạy](#xóa-tài-khoản-đang-chạy)
-23. [git stash - lưu những thay đổi tạm thời vào thùng chứa tạm](#git-stash---lưu-những-thay-đổi-tạm-thời-vào-thùng-chứa-tạm)
-24. [đưa file về trạng thái cũ như ban đầu](#đưa-file-về-trạng-thái-cũ-như-ban-đầu)
-25. [chuyển file từ vùng xanh staging area quay lại đỏ working copy](#chuyển-file-từ-vùng-xanh-staging-area-quay-lại-đỏ-working-copy)
-26. [bỏ file khi đã lỡ push lên server](#bỏ-file-khi-đã-lỡ-push-lên-server)
+23. [một số lệnh git](#một-số-lệnh-git)
+    - [kiểm tra trạng thái](#kiểm-tra-trạng-thái)
+    - [kiểm tra nhánh](#kiểm-tra-nhánh)
+    - [tạo nhánh mới](#tạo-nhánh-mới)
+    - [chuyển nhánh](#chuyển-nhánh)
+    - [tạo và đồng thời chuyển sang nhánh mới](#tạo-và-đồng-thời-chuyển-sang-nhánh-mới)
+    - [so sánh sự khác biệt giữa bản cũ và mới](#so-sánh-sự-khác-biệt-giữa-bản-cũ-và-mới)
+    - [tạo PR Pull request trộn nhánh](#tạo-pr-pull-request-trộn-nhánh)
+    - [giải quyết xung đột](#giải-quyết-xung-đột)
+24. [git stash - lưu những thay đổi tạm thời vào thùng chứa tạm](#git-stash---lưu-những-thay-đổi-tạm-thời-vào-thùng-chứa-tạm)
+25. [đưa file về trạng thái cũ như ban đầu](#đưa-file-về-trạng-thái-cũ-như-ban-đầu)
+26. [chuyển file từ vùng xanh staging area quay lại đỏ working copy](#chuyển-file-từ-vùng-xanh-staging-area-quay-lại-đỏ-working-copy)
+27. [bỏ file khi đã lỡ push lên server](#bỏ-file-khi-đã-lỡ-push-lên-server)
 
 
 
@@ -174,6 +183,54 @@ gồm 2 loại: id_ed123 và id_ed123.pub
 - kể từ thòi điểm chứng thực ssh => khi push lên là không cần chứng thực nữa
 ## xóa tài khoản đang chạy 
 tìm kiếm: Credential Manager => Windows Credentials: chọn tài khoản github => remove
+## một số lệnh git
+
+```git clone```   
+```git add```: working copy => staging area  
+```git commit```: staging area =>  local repos  
+```git push```: local repos => local repos  
+## kiểm tra trạng thái
+```
+git status
+```
+## kiểm tra nhánh 
+```
+git branch
+```
+## tạo nhánh mới
+```
+git branch <tên_nhánh>
+```
+## chuyển nhánh
+```
+git checkout <tên_nhánh>
+```
+## tạo và đồng thời chuyển sang nhánh mới
+```
+git checkout -b <tên_nhánh>
+```
+nếu bạn đang sử dụng Git phiên bản mới hơn
+```
+git switch -c <tên_nhánh>
+```
+## so sánh sự khác biệt giữa bản cũ và mới
+```
+git diff
+```
+git diff (so sánh sự khác biệt) => nhấn q để thoát (quit)
+git status => git add => git commit -m "" => git push tennhanh
+## tạo PR Pull request trộn nhánh 
+```
+git pull 
+```
+## giải quyết xung đột
+khi xảy ra xung đột, không giải quyết trên github, chỉ có thể giải quyết cục bộ 
+dưới cục bộ chuyển từ nhánh chính main => nhánh con: vd duy
+- git checkout duy (di chuyển qua nhánh duy)
+- git merge main => máy sẽ báo xung đột mã     nguồn, vào code xem phần code bị xung đột mã nguồn => sửa code bị lỗi => test lại 
+- sau khi sửa xong push lên lại 
+- git status => git add .... => git commit -m "" => git push origin duy
+- lúc này phần mearge đang vàng sẽ tự động chuyển xanh nếu hết lỗi 
 
 ## git stash - lưu những thay đổi tạm thời vào thùng chứa tạm
 - lưu những thay đổi tạm thời vào thùng chứ tạm
