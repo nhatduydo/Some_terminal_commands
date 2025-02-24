@@ -230,7 +230,36 @@ dưới cục bộ chuyển từ nhánh chính main => nhánh con: vd duy
 - git merge main => máy sẽ báo xung đột mã     nguồn, vào code xem phần code bị xung đột mã nguồn => sửa code bị lỗi => test lại 
 - sau khi sửa xong push lên lại 
 - git status => git add .... => git commit -m "" => git push origin duy
-- lúc này phần mearge đang vàng sẽ tự động chuyển xanh nếu hết lỗi 
+- lúc này phần mearge đang vàng sẽ tự động chuyển xanh nếu hết lỗi
+Ví dụ cụ thể:
+ - nhánh duy: sửa file duy.txt và push lên nhánh duy
+ - nhánh main: không biết, cũng sửa file duy.txt và push lên main
+ - nhánh duy merge origin main => lỗi:
+```
+$ git merge origin
+Auto-merging tri.txt
+CONFLICT (content): Merge conflict in tri.txt
+Automatic merge failed; fix conflicts and then commit the result.
+```
+Quy tắc: sửa lỗi trên nhánh của mình, chay test thử code => hết lỗi thì push lên lại nhánh duy
+lúc này, merge sẽ tự động báo xanh 
+=> thực hiện merge với nhánh main 
+đã giải quyết xong
+```
+git status
+```
+```
+git add duy.txt
+```
+```
+git commit -m 'fix bug merge'
+```
+```
+git push origin duy
+```
+```
+ git merge origin main
+```
 
 ## git stash - lưu những thay đổi tạm thời vào thùng chứa tạm
 - lưu những thay đổi tạm thời vào thùng chứ tạm
