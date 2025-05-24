@@ -310,6 +310,15 @@ git push origin main
 ```
 # Hướng dẫn ubuntu song song
 Khởi động vào Ubuntu.
+chạy lệnh
+```
+grep menuentry /boot/grub/grub.cfg
+```
+ghi nhớ tên đầy đủ của window: ví dụ: 
+```
+'Windows Boot Manager (on /dev/sda1)'
+```
+
 Mở file cấu hình GRUB:
 ```
 sudo nano /etc/default/grub
@@ -321,4 +330,8 @@ Tìm dòng: ```GRUB_DEFAULT=0```
 và thay bằng: 
 ```
 GRUB_DEFAULT="Windows Boot Manager (on /dev/sda1)"
+```
+Cập nhật GRUB:
+```
+sudo update-grub
 ```
