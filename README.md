@@ -39,6 +39,7 @@
 25. [đưa file về trạng thái cũ như ban đầu](#đưa-file-về-trạng-thái-cũ-như-ban-đầu)
 26. [chuyển file từ vùng xanh staging area quay lại đỏ working copy](#chuyển-file-từ-vùng-xanh-staging-area-quay-lại-đỏ-working-copy)
 27. [bỏ file khi đã lỡ push lên server](#bỏ-file-khi-đã-lỡ-push-lên-server)
+28. [Hướng dẫn ubuntu song song](#Hướng-dẫn-ubuntu-song-song)
 
 
 
@@ -306,4 +307,18 @@ git commit -m ""
 ```
 ```
 git push origin main
+```
+# Hướng dẫn ubuntu song song
+Khởi động vào Ubuntu.
+Mở file cấu hình GRUB:
+```
+sudo nano /etc/default/grub
+```
+```
+GRUB_DEFAULT="Windows Boot Manager (on /dev/sda1)"
+```
+Tìm dòng: ```GRUB_DEFAULT=0```
+và thay bằng: 
+```
+GRUB_DEFAULT="Windows Boot Manager (on /dev/sda1)"
 ```
