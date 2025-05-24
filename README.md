@@ -316,22 +316,34 @@ grep menuentry /boot/grub/grub.cfg
 ```
 ghi nhớ tên đầy đủ của window: ví dụ: 
 ```
-'Windows Boot Manager (on /dev/sda1)'
+'Windows Boot Manager (on /dev/nvme0n1p1)'
 ```
 
 Mở file cấu hình GRUB:
 ```
 sudo nano /etc/default/grub
 ```
-```
-GRUB_DEFAULT="Windows Boot Manager (on /dev/sda1)"
-```
 Tìm dòng: ```GRUB_DEFAULT=0```
 và thay bằng: 
 ```
-GRUB_DEFAULT="Windows Boot Manager (on /dev/sda1)"
+GRUB_DEFAULT='Windows Boot Manager (on /dev/nvme0n1p1)'
 ```
 Cập nhật GRUB:
 ```
 sudo update-grub
+```
+thông tin thêm 
+Chờ 2 giây trước khi khởi động hệ điều hành mặc định.
+```
+GRUB_TIMEOUT=2
+```
+GRUB sẽ không hiển thị menu và không đợi nếu không có tương tác của người dùng.
+Tuy nhiên, tùy chọn này chỉ có tác dụng nếu GRUB_TIMEOUT_STYLE=hidden.
+```
+GRUB_HIDDEN_TIMEOUT=0
+```
+Ẩn menu GRUB khi khởi động (nếu không nhấn phím nào).
+Điều này làm cho quá trình boot diễn ra "âm thầm", chỉ hiển thị nếu người dùng nhấn phím (ví dụ như Shift hoặc Esc).
+```
+GRUB_TIMEOUT_STYLE=hidden
 ```
