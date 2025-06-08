@@ -353,3 +353,58 @@ GRUB_TIMEOUT_STYLE=hidden
 # Vô hiệu hóa phím ESC
 ## Windows
 ## Ubuntu
+liệt kê các thiết bị đầu vào
+```
+sudo evtest
+```
+Trong danh sách thiết bị, tìm thiết bị bàn phím bạn muốn xử lý.
+Xác nhận phím ESC có được nhận bởi thiết bị này bằng cách chạy
+```
+sudo evtest /dev/input/event6
+```
+Nhấn phím ESC, bạn sẽ thấy sự kiện: ``` sudo udevadm info /dev/input/event6 | grep -E 'ID_VENDOR_ID|ID_MODEL_ID'```
+Lấy thông tin Vendor và Model của thiết bị
+```
+sudo udevadm info /dev/input/event6 | grep -E 'ID_VENDOR_ID|ID_MODEL_ID'
+```
+Ví dụ kết quả:
+```
+E: ID_MODEL_ID=c996
+E: ID_VENDOR_ID=048d
+```
+Tạo file cấu hình udev để tự động vô hiệu hóa phím ESC
+```
+ACTION=="add|change", SUBSYSTEM=="input", ENV{ID_VENDOR_ID}=="048d", ENV{ID_MODEL_ID}=="c996", RUN+="/usr/local/bin/evdev-override --device /dev/input/event6 --block-key KEY_ESC"
+```
+Áp dụng rule và khởi động lại udev
+```
+sudo udevadm control --reload
+sudo udevadm trigger /dev/input/event6
+```
+Hoặc khởi động lại máy để chắc chắn cấu hình được áp dụng.
+
+Kiểm tra phím ESC đã bị vô hiệu hóa
+```
+sudo evtest /dev/input/event6
+```
+Nhấn phím ESC, không thấy sự kiện KEY_ESC nữa => phím đã được khóa.
+
+# Cách mở lại (bật lại) phím ESC
+Mở file cấu hình udev /etc/udev/rules.d/90-disable-esc.rules để sửa
+```
+sudo nano /etc/udev/rules.d/90-disable-esc.rules
+```
+Xóa hoặc comment dòng RUN+=... trong file /etc/udev/rules.d/90-disable-esc.rules:
+```
+# ACTION=="add|change", SUBSYSTEM=="input", ENV{ID_VENDOR_ID}=="048d", ENV{ID_MODEL_ID}=="c996", RUN+="/usr/local/bin/evdev-override --device /dev/input/event6 --block-key KEY_ESC"
+```
+Reload lại udev rules và trigger thiết bị
+```
+sudo udevadm control --reload
+sudo udevadm trigger /dev/input/event6
+```
+Kiểm tra phím ESC đã được mở lại
+```
+sudo evtest /dev/input/event6
+```
+Nhấn phím ESC, bạn sẽ thấy sự kiện KEY_ESC xuất hiện trở lại.
