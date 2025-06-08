@@ -43,6 +43,8 @@
 29. [Vô hiệu hóa phím ESC](#Vôh-hiệu-hóa-phím-ESC)
     - [Windows](#Windows)
     - [Ubuntu](#Ubuntu)
+30. [Fix lỗi lệch thời gian khi chuyển từ ubuntu sang window11](#Fix-lỗi-lệch-thời-gian-khi-chuyển-từ-ubuntu-sang-window11)
+31. [tạo file và cài extension từ máy này qua máy khác](#tạo-file-và-cài-extension-từ-máy-này-qua-máy-khác)
 
 
 
@@ -424,3 +426,27 @@ Kiểm tra phím ESC đã được mở lại
 sudo evtest /dev/input/event6
 ```
 Nhấn phím ESC, bạn sẽ thấy sự kiện KEY_ESC xuất hiện trở lại.
+
+# Fix lỗi lệch thời gian khi chuyển từ ubuntu sang window11
+Mở Terminal trong Ubuntu
+```
+timedatectl set-local-rtc 1 --adjust-system-clock
+```
+Kiểm tra lại
+```
+timedatectl
+```
+Nếu bạn thấy dòng RTC in local TZ: yes nghĩa là đã áp dụng thành công.
+# tạo file và cài extension từ máy này qua máy khác
+Mở Terminal (trong VSCode hoặc hệ thống), gõ lệnh sau
+```
+code --list-extensions > extensions.txt
+```
+Trên máy mới (đã cài VSCode), mở Terminal và chạy lệnh sau trong thư mục có chứa extensions.txt:
+```
+cat extensions.txt | xargs -L 1 code --install-extension
+```
+Kiểm tra đã cài thành công:
+```
+code --list-extensions
+```
