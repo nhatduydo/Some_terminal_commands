@@ -40,6 +40,9 @@
 26. [chuyển file từ vùng xanh staging area quay lại đỏ working copy](#chuyển-file-từ-vùng-xanh-staging-area-quay-lại-đỏ-working-copy)
 27. [bỏ file khi đã lỡ push lên server](#bỏ-file-khi-đã-lỡ-push-lên-server)
 28. [Hướng dẫn ubuntu song song](#Hướng-dẫn-ubuntu-song-song)
+29. [Vô hiệu hóa phím ESC](#Vôh-hiệu-hóa-phím-ESC)
+    - [Windows](#Windows)
+    - [Ubuntu](#Ubuntu)
 
 
 
@@ -347,3 +350,6 @@ GRUB_HIDDEN_TIMEOUT=0
 ```
 GRUB_TIMEOUT_STYLE=hidden
 ```
+# Vô hiệu hóa phím ESC
+## Windows
+## Ubuntu
