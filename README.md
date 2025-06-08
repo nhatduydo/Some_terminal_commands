@@ -352,7 +352,7 @@ GRUB_TIMEOUT_STYLE=hidden
 ```
 # Vô hiệu hóa phím ESC
 ## Windows
-Bước 1: Mở PowerShell với quyền Administrator
+Mở PowerShell với quyền Administrator
 ```
 New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout" -Name "Scancode Map" -PropertyType Binary -Value ([byte[]](0x00,0x00,0x00,0x00, 0x00,0x00,0x00,0x00, 0x01,0x00,0x00,0x00, 0x00,0x00,0x01,0x00, 0x00,0x00,0x00,0x00))
 ```
@@ -360,7 +360,7 @@ Khởi động lại máy
 ```
 shutdown /r /t 0
 ```
-CÁCH KHÔI PHỤC PHÍM ESC
+### CÁCH KHÔI PHỤC PHÍM ESC
 ```
 Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout" -Name "Scancode Map"
 ```
